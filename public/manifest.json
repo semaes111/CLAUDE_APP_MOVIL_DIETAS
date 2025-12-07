@@ -1,20 +1,108 @@
 {
-    "name": "NutriMed - Asistente de Salud",
-    "short_name": "NutriMed",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#10b981",
-    "icons": [
+  "name": "NutriMed - Asistente de Salud y Nutricion",
+  "short_name": "NutriMed",
+  "description": "Tu asistente personal de nutricion y salud. Planes de dieta personalizados, seguimiento de peso y consultas con nutricionistas.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "scope": "/",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["health", "fitness", "medical", "lifestyle"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "48x48",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "72x72",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "96x96",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "144x144",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "256x256",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "384x384",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mi Plan de Dieta",
+      "short_name": "Plan",
+      "description": "Ver tu plan de dieta actual",
+      "url": "/PatientDashboard",
+      "icons": [
         {
-            "src": "https://base44.com/logo_v2.svg",
-            "sizes": "192x192",
-            "type": "image/svg+xml"
-        },
-        {
-            "src": "https://base44.com/logo_v2.svg",
-            "sizes": "512x512",
-            "type": "image/svg+xml"
+          "src": "/icons/icon.svg",
+          "sizes": "96x96"
         }
-    ]
+      ]
+    },
+    {
+      "name": "Chat con IA",
+      "short_name": "Chat",
+      "description": "Hablar con el asistente de nutricion",
+      "url": "/Chat",
+      "icons": [
+        {
+          "src": "/icons/icon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Recetas",
+      "short_name": "Recetas",
+      "description": "Ver sugerencias de recetas",
+      "url": "/RecipeSuggestions",
+      "icons": [
+        {
+          "src": "/icons/icon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
 }

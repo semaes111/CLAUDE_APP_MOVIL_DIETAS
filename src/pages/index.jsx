@@ -16,26 +16,32 @@ import ProfessionalAccess from "./ProfessionalAccess";
 
 import RecipeSuggestions from "./RecipeSuggestions";
 
+import Subscription from "./Subscription";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
+import { SubscriptionProvider } from '@/contexts/SubscriptionContext';
+
 const PAGES = {
-    
+
     PatientDashboard: PatientDashboard,
-    
+
     DoctorDashboard: DoctorDashboard,
-    
+
     Home: Home,
-    
+
     PatientAccess: PatientAccess,
-    
+
     MealDetails: MealDetails,
-    
+
     Chat: Chat,
-    
+
     ProfessionalAccess: ProfessionalAccess,
-    
+
     RecipeSuggestions: RecipeSuggestions,
-    
+
+    Subscription: Subscription,
+
 }
 
 function _getCurrentPage(url) {
@@ -78,7 +84,13 @@ function PagesContent() {
                 <Route path="/ProfessionalAccess" element={<ProfessionalAccess />} />
                 
                 <Route path="/RecipeSuggestions" element={<RecipeSuggestions />} />
-                
+
+                <Route path="/Subscription" element={<Subscription />} />
+
+                <Route path="/subscription/success" element={<Subscription />} />
+
+                <Route path="/subscription/cancel" element={<Subscription />} />
+
             </Routes>
         </Layout>
     );
@@ -87,7 +99,9 @@ function PagesContent() {
 export default function Pages() {
     return (
         <Router>
-            <PagesContent />
+            <SubscriptionProvider>
+                <PagesContent />
+            </SubscriptionProvider>
         </Router>
     );
 }
