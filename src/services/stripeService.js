@@ -3,6 +3,7 @@
  * Maneja suscripciones, pagos y gestión de planes
  */
 
+import * as React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { SubscriptionStore } from './offlineStorage';
 
@@ -491,8 +492,5 @@ export function useSubscription(userId) {
     }
   };
 }
-
-// Importar React para el hook
-import * as React from 'react';
 
 export default stripeService;

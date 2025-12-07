@@ -17,7 +17,7 @@ export const agentSDK = {
    * Crear una nueva conversación
    */
   async createConversation({ agent_name, metadata = {} }) {
-    const conversationId = `conv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const conversationId = `conv_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 
     const conversation = {
       id: conversationId,

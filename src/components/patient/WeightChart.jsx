@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { TrendingDown } from "lucide-react";
@@ -9,14 +9,10 @@ export default function WeightChart({ patientId, patientData }) {
   const [weightData, setWeightData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadWeightData();
-  }, [patientId]);
-
-  const loadWeightData = async () => {
+  const loadWeightData = useCallback(async () => {
     try {
       const records = await WeightRecord.filter({ patient_id: patientId }, '-date');
-      
+
       // Agregar peso inicial si no existe
       const chartData = [
         {
@@ -42,7 +38,11 @@ export default function WeightChart({ patientId, patientData }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [patientId, patientData]);
+
+  useEffect(() => {
+    loadWeightData();
+  }, [loadWeightData]);
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {

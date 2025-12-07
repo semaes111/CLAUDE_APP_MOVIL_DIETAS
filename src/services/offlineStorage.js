@@ -511,11 +511,13 @@ export const SyncUtils = {
    * Solicitar sincronización en segundo plano
    */
   async requestBackgroundSync() {
-    if ('serviceWorker' in navigator && 'sync' in self.registration) {
+    if ('serviceWorker' in navigator) {
       try {
         const registration = await navigator.serviceWorker.ready;
-        await registration.sync.register('sync-data');
-        return true;
+        if ('sync' in registration) {
+          await registration.sync.register('sync-data');
+          return true;
+        }
       } catch (error) {
         console.error('Error registrando background sync:', error);
         return false;
