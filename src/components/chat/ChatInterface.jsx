@@ -91,8 +91,8 @@ export default function ChatInterface({ agentName, patientName }) {
     }
 
     // Filtra los mensajes que contienen el contexto del paciente para que no se muestren en la UI.
-    const visibleMessages = messages.filter(msg => 
-        !msg.content.includes('[CONTEXTO DEL PACIENTE - ID:')
+    const visibleMessages = messages.filter(msg =>
+        msg.content && !msg.content.includes('[CONTEXTO DEL PACIENTE - ID:')
     );
 
     return (

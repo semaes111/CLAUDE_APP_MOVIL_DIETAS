@@ -3,6 +3,7 @@
  * Maneja el estado de conexión y sincronización de datos
  */
 
+import * as React from 'react';
 import { Network } from '@capacitor/network';
 import { SyncQueue, SyncUtils } from './offlineStorage';
 
@@ -261,14 +262,6 @@ export function useNetworkStatus() {
   }, []);
 
   return status;
-}
-
-// Importar React solo si está disponible (para el hook)
-let React;
-try {
-  React = await import('react');
-} catch {
-  React = null;
 }
 
 export default {
